@@ -21,7 +21,16 @@ namespace delegado
         {
             Form2 frm =new Form2();
             frm.pasado += Frm_pasado;
+            frm.incrementando += Frm_incrementando;
+            progressBar1.Maximum = 60;
             frm.Show();
+        }
+
+        private void Frm_incrementando(int val)
+        {
+            //MessageBox.Show(val.ToString());
+
+            progressBar1.Value = val;
         }
 
         private void Frm_pasado(string texto)

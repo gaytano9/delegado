@@ -18,10 +18,26 @@ namespace delegado
         }
         public delegate void pasar(string texto);
         public event pasar pasado;
+
+        public delegate void incrementar(int val);
+        public event incrementar incrementando;
         private void button1_Click(object sender, EventArgs e)
         {
             pasado(textBox1.Text);
             textBox1.Clear();
+            timer1.Start();
+
+
+        }
+        int cont = 0;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            incrementando(cont);
+            if (cont == 60)
+            {
+                timer1.Stop();
+            }
+            cont++;
         }
     }
 }
